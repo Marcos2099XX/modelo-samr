@@ -6,21 +6,21 @@
     <title>Modelo SAMR: Guía Interactiva</title>
     <style>
         :root {
-            /* Paleta de Colores */
-            --primary: #2c3e50;       /* Azul oscuro */
-            --accent: #3498db;        /* Azul brillante */
-            --bg-light: #f4f6f7;      /* Fondo suave */
+            /* Paleta de Colores – profesional + juvenil */
+            --primary: #1b1f3b;       /* Índigo profundo */
+            --accent: #6366f1;        /* Índigo brillante */
+            --bg-light: #f3f4ff;      /* Fondo lavanda muy suave */
             --white: #ffffff;
             
             /* Colores Semánticos SAMR */
-            --enhance-color: #f39c12; /* Naranja - Mejora */
-            --trans-color: #8e44ad;   /* Morado - Transformación */
+            --enhance-color: #f97316; /* Naranja vivo (Mejora) */
+            --trans-color: #a855f7;   /* Morado vivo (Transformación) */
             
             /* Colores de Niveles */
-            --card-s: #e67e22;
-            --card-a: #f1c40f;
-            --card-m: #27ae60;
-            --card-r: #9b59b6;
+            --card-s: #f97316; /* Sustitución */
+            --card-a: #facc15; /* Aumento */
+            --card-m: #22c55e; /* Modificación */
+            --card-r: #6366f1; /* Redefinición */
         }
 
         body {
@@ -30,18 +30,56 @@
             background-color: var(--bg-light);
             margin: 0;
             padding: 0;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--accent);
         }
 
         /* --- HEADER --- */
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: radial-gradient(circle at top left, #4f46e5 0%, #1f2933 40%, #030712 100%);
             color: white;
-            padding: 3rem 1rem;
+            padding: 2.5rem 1rem 2rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 18px rgba(15,23,42,0.4);
         }
-        header h1 { margin: 0; font-size: 2.8rem; letter-spacing: 1px; }
-        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
+        header h1 { 
+            margin: 0; 
+            font-size: 2.6rem; 
+            letter-spacing: 1px; 
+        }
+        header p { 
+            font-size: 1.1rem; 
+            opacity: 0.9; 
+            margin-top: 10px; 
+        }
+
+        /* NAV */
+        .main-nav {
+            margin-top: 1.4rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+        .main-nav a {
+            color: #e5e7ff;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.25);
+            transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+        }
+        .main-nav a:hover,
+        .main-nav a:focus-visible {
+            background: rgba(129,140,248,0.9);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(15,23,42,0.5);
+            outline: none;
+        }
 
         /* --- CONTENEDOR PRINCIPAL --- */
         .container {
@@ -54,10 +92,11 @@
 
         .section {
             background: var(--white);
-            border-radius: 12px;
-            padding: 2.5rem;
+            border-radius: 16px;
+            padding: 2.2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(15,23,42,0.12);
+            border: 1px solid rgba(15,23,42,0.06);
         }
 
         h2 { 
@@ -65,30 +104,33 @@
             margin-top: 0; 
             border-left: 5px solid var(--accent);
             padding-left: 15px;
+            font-size: 1.5rem;
         }
 
         /* --- VIDEO SECTION (DESTACADA) --- */
         .video-section {
             text-align: center;
-            background: white;
-            border-radius: 12px;
+            background: var(--white);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 14px 35px rgba(15,23,42,0.2);
             margin-bottom: 3rem;
+            border: 1px solid rgba(15,23,42,0.08);
         }
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
+            background: radial-gradient(circle at top, #6366f1 0, #111827 45%);
         }
         .video-container iframe {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
         }
         .video-caption {
             padding: 15px;
-            background: #ecf0f1;
-            color: #555;
+            background: #e0e7ff;
+            color: #1f2937;
             font-size: 0.9rem;
         }
 
@@ -101,24 +143,25 @@
         .concept-box {
             flex: 1;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(15,23,42,0.05);
         }
         .enhance-box {
-            background-color: #fff8e1; /* Fondo naranja muy suave */
+            background-color: #fff7ed; /* Fondo naranja muy suave */
             border: 2px solid var(--enhance-color);
-            color: #d35400;
+            color: #9a3412;
         }
         .trans-box {
-            background-color: #f3e5f5; /* Fondo morado muy suave */
+            background-color: #f5e9ff; /* Fondo morado muy suave */
             border: 2px solid var(--trans-color);
-            color: #8e44ad;
+            color: #6b21a8;
         }
         .concept-title {
             font-weight: 800;
             text-transform: uppercase;
             display: block;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 10px;
         }
 
@@ -130,10 +173,17 @@
             margin-top: 20px;
         }
         .advantage-item {
-            background: #f8fcfd;
+            background: #f9fafb;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             border-left: 4px solid var(--card-m);
+            box-shadow: 0 4px 10px rgba(15,23,42,0.04);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        }
+        .advantage-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(15,23,42,0.18);
+            background: #eef2ff;
         }
 
         /* --- TARJETAS SAMR --- */
@@ -154,65 +204,101 @@
 
         .face {
             position: absolute; width: 100%; height: 100%;
-            backface-visibility: hidden; border-radius: 12px;
+            backface-visibility: hidden; border-radius: 14px;
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
             padding: 20px; box-sizing: border-box;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 16px rgba(15,23,42,0.12);
         }
 
-        .front { background: white; }
-        .front h3 { font-size: 4rem; margin: 0; line-height: 1; }
-        .front span { font-size: 1.2rem; font-weight: bold; text-transform: uppercase; margin-top: 10px;}
+        .front { background: #f9fafb; }
+        .front h3 { font-size: 3.8rem; margin: 0; line-height: 1; }
+        .front span { font-size: 1.1rem; font-weight: bold; text-transform: uppercase; margin-top: 10px;}
         
         /* Estilos Individuales */
         .s .front { color: var(--card-s); border-top: 8px solid var(--card-s); }
-        .s .back { background: var(--card-s); color: white; transform: rotateY(180deg); }
+        .s .back { background: linear-gradient(135deg, var(--card-s), #f59e0b); color: white; transform: rotateY(180deg); }
         
         .a .front { color: var(--card-a); border-top: 8px solid var(--card-a); }
-        .a .back { background: var(--card-a); color: white; transform: rotateY(180deg); }
+        .a .back { background: linear-gradient(135deg, #facc15, #fbbf24); color: #1f2933; transform: rotateY(180deg); }
         
         .m .front { color: var(--card-m); border-top: 8px solid var(--card-m); }
-        .m .back { background: var(--card-m); color: white; transform: rotateY(180deg); }
+        .m .back { background: linear-gradient(135deg, var(--card-m), #16a34a); color: #f0fdf4; transform: rotateY(180deg); }
         
         .r .front { color: var(--card-r); border-top: 8px solid var(--card-r); }
-        .r .back { background: var(--card-r); color: white; transform: rotateY(180deg); }
+        .r .back { background: linear-gradient(135deg, var(--card-r), #4f46e5); color: #eef2ff; transform: rotateY(180deg); }
 
         .back p { font-size: 0.95rem; text-align: left; margin-bottom: 10px; }
         .back strong { display: block; text-align: left; font-size: 1rem; margin-bottom: 5px; text-decoration: underline;}
 
         /* --- TABLA EJEMPLOS --- */
-        .examples-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .examples-table th, .examples-table td { padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
-        .examples-table th { background-color: var(--primary); color: white; }
-        .examples-table tr:hover { background-color: #f9f9f9; }
+        .examples-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 15px; 
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(15,23,42,0.08);
+        }
+        .examples-table th, .examples-table td { 
+            padding: 15px; 
+            border-bottom: 1px solid #e5e7eb; 
+            text-align: left; 
+        }
+        .examples-table th { 
+            background: linear-gradient(135deg, var(--accent), #4f46e5); 
+            color: white; 
+            font-weight: 600;
+        }
+        .examples-table tr:hover { background-color: #eef2ff; }
 
-        /* --- JUEGO DUOLINGO --- */
+        /* --- JUEGO ESCAPE SAMR --- */
         .game-section {
-            background: linear-gradient(to right, #2ecc71, #27ae60);
+            background: radial-gradient(circle at top left, var(--accent) 0%, var(--trans-color) 45%, #111827 100%);
             color: white;
             text-align: center;
-            border-radius: 15px;
+            border-radius: 18px;
             padding: 40px;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 16px 40px rgba(15,23,42,0.45);
         }
         .btn-game {
-            background: white; color: #27ae60;
-            padding: 15px 40px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; font-size: 1.3rem;
-            display: inline-block; margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
+            background: var(--white); 
+            color: var(--accent);
+            padding: 15px 40px; 
+            border-radius: 999px;
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.2rem;
+            display: inline-block; 
+            margin-top: 20px;
+            box-shadow: 0 8px 22px rgba(15,23,42,0.35);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
-        .btn-game:hover { transform: scale(1.05); }
+        .btn-game:hover { 
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 12px 28px rgba(15,23,42,0.45);
+        }
 
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 0.9rem; }
+        footer { 
+            text-align: center; 
+            padding: 30px; 
+            color: #6b7280; 
+            font-size: 0.9rem; 
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
             .split-concept { flex-direction: column; }
-            header h1 { font-size: 2rem; }
+            header h1 { font-size: 2.1rem; }
+            .section { padding: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 17px;
+            }
         }
     </style>
 </head>
@@ -221,11 +307,21 @@
 <header>
     <h1>El Modelo SAMR</h1>
     <p>Sustitución • Aumento • Modificación • Redefinición</p>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#intro">Introducción</a>
+        <a href="#estructura">Estructura</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#niveles">Niveles</a>
+        <a href="#ejemplos">Ejemplos</a>
+        <a href="#juego">Juego</a>
+        <a href="#uso">Cómo usarlo</a>
+    </nav>
 </header>
 
 <div class="container">
 
-    <div class="video-section">
+    <div class="video-section" id="intro">
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/NNht4CBe9w4" allowfullscreen></iframe>
         </div>
@@ -234,7 +330,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="estructura">
         <h2>La Estructura del Modelo</h2>
         <p>El modelo SAMR describe cuatro niveles que aumentan en complejidad y efecto. Es vital distinguir entre simplemente digitalizar y verdaderamente transformar:</p>
         
@@ -242,20 +338,20 @@
             <div class="concept-box enhance-box">
                 <span class="concept-title">Zona de Mejora</span>
                 <p style="font-size:0.9rem;">(Sustitución + Aumento)</p>
-                <hr style="border-color:#f39c12; opacity:0.3;">
+                <hr style="border-color:#f97316; opacity:0.3;">
                 <p>La tecnología se usa para hacer lo mismo de siempre, pero de forma más rápida o eficiente.</p>
             </div>
 
             <div class="concept-box trans-box">
                 <span class="concept-title">Zona de Transformación</span>
                 <p style="font-size:0.9rem;">(Modificación + Redefinición)</p>
-                <hr style="border-color:#8e44ad; opacity:0.3;">
+                <hr style="border-color:#a855f7; opacity:0.3;">
                 <p>La tecnología permite crear nuevas experiencias de aprendizaje que antes eran imposibles.</p>
             </div>
         </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="beneficios">
         <h2>Beneficios Clave</h2>
         <p>Este modelo está diseñado para ayudar a los profesores a integrar tecnología con propósito:</p>
         <div class="advantages-grid">
@@ -274,7 +370,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="niveles">
         <h2>Explora los 4 Niveles</h2>
         <p>Pasa el cursor (o toca) las tarjetas para ver los detalles y ejemplos:</p>
         
@@ -341,7 +437,7 @@
         </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="ejemplos">
         <h2>Ejemplos Comparativos</h2>
         <p>Veamos cómo evoluciona una actividad de escritura a través de los niveles:</p>
         <div style="overflow-x:auto;">
@@ -374,18 +470,30 @@
         </div>
     </div>
 
-    <div class="game-section">
+    <div class="game-section" id="juego">
         <h2 style="color:white; border:none; margin-bottom:10px;">🎮 ¡Demuestra lo que sabes!</h2>
-        <p style="font-size:1.1rem;">¿Podrías identificar el nivel correcto en una situación real?</p>
-        <a href="https://marcos2099xx.github.io/escape-samr-mtac-tabasco/" target="_blank" class="btn-game">
+        <p style="font-size:1.1rem;">Pon en práctica lo aprendido y reta tu comprensión del modelo SAMR en un escape room educativo.</p>
+        <a href="https://marcos2099xx.github.io/escape-samr-mtac-tabasco/" 
+           target="_blank" 
+           class="btn-game"
+           aria-label="Abrir el juego Escape SAMR – Misión MTAC en Tabasco en una nueva pestaña"
+           title="Abrir el juego Escape SAMR – Misión MTAC en Tabasco en una nueva pestaña">
             Jugar Ahora
         </a>
+    </div>
+
+    <div class="section" id="uso">
+        <h2>¿Cómo utilizar este recurso?</h2>
+        <p><strong>Docentes:</strong> pueden proyectar esta guía en clase para introducir el modelo SAMR, discutir los ejemplos de cada nivel y, posteriormente, pedir al grupo que juegue a <em>Escape SAMR – Misión MTAC en Tabasco</em> como actividad de refuerzo o evaluación formativa.</p>
+        <p><strong>Estudiantes:</strong> revisen las tarjetas, la estructura y la tabla comparativa. El objetivo es que, al finalizar, sean capaces de identificar en qué nivel SAMR se encuentra una actividad concreta y cómo podría transformarse usando tecnología.</p>
+        <p>Este recurso está pensado para acompañar cursos de integración de tecnología educativa, como la Maestría en Tecnologías para el Aprendizaje y el Conocimiento (MTAC).</p>
     </div>
 
 </div>
 
 <footer>
     <p>Basado en el documento "El modelo SAMR". Referencias: Puentedura, R. R. (2009) y MacKenty, B. (2011).</p>
+    <p>Desarrollado por <strong>Marcos Alberto Arias Ramírez</strong> – UJAT, Maestría MTAC – 2025.</p>
 </footer>
 
 </body>
